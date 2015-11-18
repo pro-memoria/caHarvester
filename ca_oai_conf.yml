@@ -1,0 +1,132 @@
+## EAD sono le schede principali
+## container: external_link, unitdate, in date_value il data_range
+ead: 
+ element_code_list:
+  - archdesc_level
+  - external_link
+  - url_line1
+  - url_source
+  - url_line2
+  - url_entry
+  - perma_id
+  - unitdate
+  - date_value
+  - dateChar
+  - dates_text
+  - extent 
+  - scopecontent
+  - record_status
+  - scopecontent
+## Bisogna gestire le relazioni
+ metadataPrefix: 'ead-san'
+ set: Musica-ead-san
+ module: 'SAN::EAD'
+ meta: 'SAN::EAD::Pastor::Meta'
+ class: ead
+ identity:
+  - archdesc
+  - did
+  - unitid
+## EAC sono i soggetti produttori
+eac:
+ element_code_list:
+  - perma_id
+  - external_link
+  - url_line1
+  - url_source
+  - url_line2
+  - url_entry
+  - tipo_ent
+  - data
+  - data_range
+  - txNoteData
+  - place
+  - place_value
+  - place_descriptiveNote
+  - adminbiohist
+ identity:
+  - control
+  - otherRecordId
+ metadataPrefix: 'eac-san'
+ set: Musica-eac-san
+ module: 'SAN::EAC'
+ meta: 'SAN::EAC::Pastor::Meta'
+ class: 'eac-cpf'
+## SCONS sono i soggetti conservatori
+scons:
+ element_code_list:
+  - acronimo
+  - perma_id
+  - sistemaId
+  - external_link
+  - url_line1
+  - url_source
+  - url_line2
+  - url_entry
+  - tipo_scons
+  - localizzaz
+  - localizzaz_paese
+  - localizzaz_provincia
+  - localizzaz_comune
+  - localizzaz_cap
+  - localizzaz_value
+  - site_scons
+  - site_scons_name
+  - site_scons_url
+  - servizi_pubbl
+  - orari
+  - altro_accesso
+  - servizi
+  - adminbiohist
+# identity ha la lista degli accessor che mi portano all'identificativo del record per questa classe
+ identity:
+  - identifier
+  - recordId
+ metadataPrefix: 'scons-san'
+ set: Musica-scons-san
+ module: 'SAN::SCONS'
+ meta: 'SAN::SCONS::Pastor::Meta'
+ class: scons
+## Ricerca sono gli strumenti di ricerca
+ricerca:
+ metadataPrefix: 'ricerca-san'
+ set: 'Musica-ricerca-san' 
+## METS sono gli oggetti digiali
+## container: unitdate, index
+mets:
+ element_code_list:
+  - scopecontent
+  - unitdate
+  - date_value
+  - dateChar
+  - dates_text
+  - external_link
+  - url_entry
+  - url_source
+  - genreform
+  - genreform_type
+  - genreform_value
+  - langmaterial	## container
+  - language 		## elemento container
+  - index 		## container
+  - index_value  	## elemento container
+  - index_rule		## elemento container
+  - index_emph		## elemento container
+  - subject			## container
+  - subject_value  		## elemento container
+  - subject_emph	  	## elemento container
+  - relazioni_san     	      	## container
+  - relazioni_san_sistad       	## elemento container
+  - relazioni_san_prodig	## elemento container
+  - relazioni_san_portem       	## elemento container
+  - relazioni_san_scons        	## elemento container
+  - relazioni_san_comparch     	## elemento container
+  - agent 		       	## container
+  - agent_role 		       	## elemento container
+  - agent_type 		       	## elemento container
+  - agent_name 		       	## elemento container
+  - archdesc_level 	       	## inseriamo sempre la stringa "Unità documentale"
+ metadataPrefix: 'mets-san'
+ set: 'Musica-mets-san'
+harvester:
+  baseurl: http://www.san.beniculturali.it/oaicat/OAIHandler
