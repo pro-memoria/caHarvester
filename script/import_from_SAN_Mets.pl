@@ -1,19 +1,4 @@
 #!/usr/bin/env perl
-=pod
- ----------------------------------------------------------------------
-
- ----------------------------------------------------------------------
-    
- ----------------------------------------------------------------------
- 
-  Software by Promemoria (http://promemoriagroup.com) con la gentile e importante
-  collaborazione di Ferruccio Zamuner (http://www.nonsolosoft.com)
-   
-  This source code is free and modifiable under the terms of 
-  GNU General Public License. (http://www.gnu.org/copyleft/gpl.html).
-  ----------------------------------------------------------------------
-=cut
-
 use strict;
 use warnings;
 use utf8;
