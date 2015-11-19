@@ -56,8 +56,6 @@ my %args;
 
 $args{set}            = $config->get->{$SOGGETTO}{set};
 $args{metadataPrefix} = $config->get->{$SOGGETTO}{metadataPrefix} || 'ead-san';
-#$ARGV[0] //= '2001-04-01';
-#$ARGV[1] //= '2015-08-31';
 
 if (defined $ARGV[0] && validate_date($ARGV[0])) {
     $args{from}=$ARGV[0];
@@ -79,14 +77,9 @@ Poiché l'harvester non decifra i record, lo usiamo per gestire l'envelope e per
 
 sub _parse {
     my ($content, $response) = @_;
-#    unless (Unicode::UTF8::valid_utf8(Encode::encode('utf8', $content->dom->getFirstChild->getChildNodes->[1]->getFirstChild->toStringC14N))) {
-#	print $content->dom->getFirstChild->getChildNodes->[1]->getFirstChild->toStringC14N;
-#    }
-#    $DB::single=1;
+
     my $data = $class->from_xml_fragment($content->dom->getFirstChild->getChildNodes->[1]->getFirstChild);
     push (@tutti_i_record, $data);
-#    $response->content->record($data);
-    ;
 }
 
 # Using a handler
@@ -106,10 +99,7 @@ say scalar @tutti_i_record . " " . $SOGGETTO . " trovati";
 
 my $schema = CollectiveAccess::PortaleMusica::Schema->connect($dbi_dns, $user, $passwd, $options) || die ("Cannot open db connection $dbi_dns.");
 
-
-
 my $codici=$config->get->{$SOGGETTO}{element_code_list};
-
 
 my $dbh = DBI->connect($dbi_dns,$user,$passwd) || die "Could not connect to database: $DBI::errstr";
 
@@ -152,18 +142,10 @@ my $tnx_guard = $schema->txn_scope_guard;
 for my $rec (@tutti_i_record) {
     print STDERR _apply($rec, @accessors), "\t";
     Promemoria::SAN->$metodo($rec);
-    #$rec->datestamp, "\n",
-    #$rec->metadata, "\n";
-    #print join(',', @{$rec->metadata->dc->{'title'}}), "\n";
     print "\n";
 }
 
 $tnx_guard->commit;
-# Offline parsing
-#$I = HTTP::OAI::Identify->new();
-#$I->parse_string($content);
-#$I->parse_file($fh);
-
 exit(1);
 
 sub validate_date {
@@ -185,5 +167,4 @@ sub nice_string {
 
 
 __END__
-
 
