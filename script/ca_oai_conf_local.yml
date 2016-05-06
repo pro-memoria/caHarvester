@@ -1,0 +1,9 @@
+---
+connect_info: 
+  dbi_dns: "dbi:mysql:dbname=XXXX"
+  dbi_user: "sqlUser"
+  dbi_passwd: "sqlPass"
+  dbi_options:
+   AutoCommit: 1
+   RaiseError: 1
+   mysql_enable_utf8: 1
