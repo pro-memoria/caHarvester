@@ -27,7 +27,7 @@ sub resourceRelationType { &_resourceRelationType; }
 SAN::EAC::Type::resourceRelation->XmlSchemaType( bless( {
          'attributeInfo' => {
                               'resourceRelationType' => bless( {
-                                                               'class' => undef,
+                                                               'class' => 'SAN::EAC::Type::resourceRelation',
                                                                'fixed' => 'creatorOf',
                                                                'metaClass' => 'SAN::EAC::Pastor::Meta',
                                                                'name' => 'resourceRelationType',

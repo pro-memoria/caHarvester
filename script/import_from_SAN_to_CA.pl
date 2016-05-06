@@ -25,7 +25,7 @@ my $SOGGETTO = $ARGV[0];
 
 use Config::JFDI;
 
-my $config = Config::JFDI->new(name=>'CA_OAI_conf', path=>$Bin);
+my $config = Config::JFDI->new(name=>'ca_oai_conf', path=>$Bin);
 
 require UNIVERSAL::require;
 

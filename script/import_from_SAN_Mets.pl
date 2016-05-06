@@ -23,7 +23,7 @@ unless(grep {/^$SOGGETTO$/} @TRACCIATI){
 
 use Config::JFDI;
 
-my $config = Config::JFDI->new(name=>'CA_OAI_conf', path=>$Bin);
+my $config = Config::JFDI->new(name=>'ca_oai_conf', path=>$Bin);
 
 use CollectiveAccess::PortaleMusica::Schema; # schema del db
 use CollectiveAccess::PortaleMusica::Mets;   # operazioni di scrittura nel db

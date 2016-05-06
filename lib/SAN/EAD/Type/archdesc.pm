@@ -35,7 +35,7 @@ sub otherlevel { &_otherlevel; }
 SAN::EAD::Type::archdesc->XmlSchemaType( bless( {
          'attributeInfo' => {
                               'level' => bless( {
-                                                'class' => undef,
+                                                'class' => 'SAN::EAD::Type::stringNotEmpty',
                                                 'fixed' => 'otherlevel',
                                                 'metaClass' => 'SAN::EAD::Pastor::Meta',
                                                 'name' => 'level',

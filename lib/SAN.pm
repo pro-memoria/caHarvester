@@ -741,6 +741,9 @@ sub insert_produttore {
 	);
 
 	for my $sito ($eac->control->sources) {
+            if (! defined($sito->source->get('_href')) ) {
+	      next;
+	    }
 	    my $urlSource = URI->new( $sito->source->get('_href') );
 	    push(@attrs,
 		 {
@@ -1127,7 +1130,7 @@ sub insert_conservatore {
 		 },
 		);
 	}
-	fonr (@attrs) {
+	for (@attrs) {
 	    eval {
 		$scons_rec->search_related('ca_attributes')->create($_);
 	    };
